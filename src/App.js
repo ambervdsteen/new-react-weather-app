@@ -1,14 +1,13 @@
 import React from 'react';
 import './App.css';
+import Weather from './Weather.js';
 
 function App() {
   return (
     <div className="App">
       <div className="container">
       <header className="Weather App">   </header>
-      <h2>Welcome to the weather app</h2>
-      <h3>check out the weather in your city</h3>
-     
+      <Weather />
         <footer> this page was coded by 
         <a
           className="App-link"
@@ -17,8 +16,7 @@ function App() {
           rel="noopener noreferrer"
         > Amber van der Steen      
         </a>  </footer>
-        <p className="btn btn-primary">click here</p>
-   
+ 
       </div>
     </div>
   );
