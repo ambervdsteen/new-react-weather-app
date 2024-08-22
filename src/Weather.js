@@ -1,17 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Weather.css';
 import axios from 'axios';
 
-function Weather(){
+function Weather({defaultCity}){
+    const [weather, setWeather] = useState({ready:false});
     function handleResponse(response){
-        
+        console.log(response.data);
+        setWeather({
+            ready:true,
+            temperature: response.data.temperature.current,
+            description: response.data.condition.description,
+            humidity: response.data.temperature.humidity,
+            wind: response.data.wind.speed,
+            icon: response.data.condition.icon,
+            feels_like: response.data.temperature.feels_like,
+            city: response.data.city,
+        })
     }
 
-    const apiKey="2950072abb4303db56f019dto24c1aca";
-    let city="London"
-    let apiUrl=`https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`
-
-   axios.get(apiUrl).then(handleResponse);
+   if (weather.ready){
     return (
     <div className="Weather">    
 <form className="mb-3">
@@ -25,30 +32,37 @@ function Weather(){
         <div className="row">
 <div className="col-9">
 <ul>
-    <li>Date Thursday 22nd of August, 2024</li>
-    <li>Description Sunny with scattered clouds</li>
+    <li>Thursday 22nd of August, 2024</li>
+    <li className="text-capitalize">{weather.description}</li>
 </ul>
 </div>
 <div className="col-3">
 <ul>
-    <li>15% precipitation</li>
-    <li>65% humidity</li>
-    <li>10 km/h wind</li>
+    <li>Feels like {Math.round(weather.feels_like)}°C</li>
+    <li>{weather.humidity}% humidity</li>
+    <li>{weather.wind} km/h wind</li>
 </ul>
 </div>
 
 <div className="YourCity mt-3" >
     
-        <h1>City BARCELONA</h1>
-        <h2>Current Temperature 26°C</h2>
-        <div className="WeatherIcon">icon</div>
+        <h1>{weather.city}</h1>
+        <h2>{Math.round(weather.temperature)}°C</h2>
+        <div className="WeatherIcon">{weather.icon}
+        </div>
 
 </div>
 
         </div>
      
        </div>
-    )
-}
+    ); 
+} else {
+    const apiKey="2950072abb4303db56f019dto24c1aca";
+    let apiUrl=`https://api.shecodes.io/weather/v1/current?query=${defaultCity}&key=${apiKey}&units=metric`
+
+   axios.get(apiUrl).then(handleResponse);
+    return "Ready in just a few seconds"
+}}
 
 export default Weather;
