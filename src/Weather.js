@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import './Weather.css';
+import DateFormat from './DateFormat'
 import axios from 'axios';
 
 function Weather({defaultCity}){
     const [weather, setWeather] = useState({ready:false});
     function handleResponse(response){
-        console.log(response.data);
         setWeather({
             ready:true,
             temperature: response.data.temperature.current,
@@ -15,6 +15,7 @@ function Weather({defaultCity}){
             icon: response.data.condition.icon,
             feels_like: response.data.temperature.feels_like,
             city: response.data.city,
+            date: new Date(response.data.time * 1000),
         })
     }
 
@@ -32,7 +33,7 @@ function Weather({defaultCity}){
         <div className="row">
 <div className="col-9">
 <ul>
-    <li>Thursday 22nd of August, 2024</li>
+    <li><DateFormat date={weather.date}/> </li>
     <li className="text-capitalize">{weather.description}</li>
 </ul>
 </div>
