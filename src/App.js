@@ -6,7 +6,6 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-      <header className="Weather App">   </header>
       <Weather />
         <footer> this page was coded by 
         <a
