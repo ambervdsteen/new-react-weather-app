@@ -1,12 +1,19 @@
 import React from 'react';
 import './Weather.css';
+import axios from 'axios';
 
 function Weather(){
-    return (
-       <div className="Weather">
+    function handleResponse(response){
+        
+    }
 
-      
-      
+    const apiKey="2950072abb4303db56f019dto24c1aca";
+    let city="London"
+    let apiUrl=`https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`
+
+   axios.get(apiUrl).then(handleResponse);
+    return (
+    <div className="Weather">    
 <form className="mb-3">
 <div className="row">
     <div className="col-9">
