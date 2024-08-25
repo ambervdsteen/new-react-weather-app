@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './Weather.css';
-import DateFormat from './DateFormat'
 import axios from 'axios';
+import WeatherData from './WeatherData'
 
 function Weather({defaultCity}){
     const [weather, setWeather] = useState({ready:false});
@@ -30,32 +30,7 @@ function Weather({defaultCity}){
     <input type="submit" className="btn btn-dark w-100"/></div>
     </div>
 </form>
-        <div className="row">
-<div className="col-9">
-<ul>
-    <li><DateFormat date={weather.date}/> </li>
-    <li className="text-capitalize">{weather.description}</li>
-</ul>
-</div>
-<div className="col-3">
-<ul>
-    <li>Feels like {Math.round(weather.feels_like)}°C</li>
-    <li>{weather.humidity}% humidity</li>
-    <li>{weather.wind} km/h wind</li>
-</ul>
-</div>
-
-<div className="YourCity mt-3" >
-    
-        <h1>{weather.city}</h1>
-        <h2>{Math.round(weather.temperature)}°C</h2>
-        <div className="WeatherIcon">{weather.icon}
-        </div>
-
-</div>
-
-        </div>
-     
+     <WeatherData data={weather}/>
        </div>
     ); 
 } else {
