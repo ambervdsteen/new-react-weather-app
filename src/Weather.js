@@ -13,7 +13,7 @@ function Weather({defaultCity}){
             description: response.data.condition.description,
             humidity: response.data.temperature.humidity,
             wind: response.data.wind.speed,
-            icon: response.data.condition.icon,
+            iconUrl: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon[0]}`,
             feels_like: response.data.temperature.feels_like,
             city: response.data.city,
             date: new Date(response.data.time * 1000),

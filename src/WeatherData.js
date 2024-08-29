@@ -1,5 +1,6 @@
 import React from 'react';
 import DateFormat from './DateFormat'
+import TemperatureData from './TemperatureData'
 
 function WeatherData({data}){
     return (
@@ -22,8 +23,8 @@ function WeatherData({data}){
 <div className="YourCity mt-3" >
     
         <h1>{data.city}</h1>
-        <h2>{Math.round(data.temperature)}°C</h2>
-        <div className="WeatherIcon">{data.icon}
+    <TemperatureData celsius={data.temperature}/>
+        <div className="WeatherIcon">{data.iconUrl}
         </div>
 
 </div>
