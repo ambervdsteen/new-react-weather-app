@@ -24,8 +24,8 @@ function WeatherData({data}){
     
         <h1>{data.city}</h1>
     <TemperatureData celsius={data.temperature}/>
-        <div className="WeatherIcon">{data.iconUrl}
-        </div>
+        {/* <div className="WeatherIcon">{data.iconUrl}
+        </div> */}
 
 </div>
 
