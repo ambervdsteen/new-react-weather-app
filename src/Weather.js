@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './Weather.css';
 import axios from 'axios';
 import WeatherData from './WeatherData'
+import WeatherForecast from './WeatherForecast'
 
 function Weather({defaultCity}){
     const [weather, setWeather] = useState({ready:false});
@@ -13,7 +14,7 @@ function Weather({defaultCity}){
             description: response.data.condition.description,
             humidity: response.data.temperature.humidity,
             wind: response.data.wind.speed,
-            iconUrl: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon[0]}`,
+            // iconUrl: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon[0]}`,
             feels_like: response.data.temperature.feels_like,
             city: response.data.city,
             date: new Date(response.data.time * 1000),
@@ -48,6 +49,7 @@ function Weather({defaultCity}){
     </div>
 </form>
      <WeatherData data={weather}/>
+     <WeatherForecast />
        </div>
     ); 
 } else {
