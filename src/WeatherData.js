@@ -1,6 +1,7 @@
 import React from 'react';
 import DateFormat from './DateFormat'
 import TemperatureData from './TemperatureData'
+import WeatherIcon from './WeatherIcon'
 
 function WeatherData({data}){
     return (
@@ -24,8 +25,9 @@ function WeatherData({data}){
     
         <h1>{data.city}</h1>
     <TemperatureData celsius={data.temperature}/>
-        {/* <div className="WeatherIcon">{data.iconUrl}
-        </div> */}
+
+<WeatherIcon code={data.icon} alt={data.description}/>
+      
 
 </div>
 
