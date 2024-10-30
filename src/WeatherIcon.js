@@ -21,7 +21,6 @@ function WeatherIcon ({alt, code}){
         "snow-night":"SNOW",
         "mist-day":"FOG",
         "mist-night":"FOG"
-
     }
 
     return (
