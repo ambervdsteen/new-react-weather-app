@@ -11,7 +11,7 @@ function WeatherForecast ({coordinates}){
         const apiKey="2950072abb4303db56f019dto24c1aca";
         let longitude=coordinates.longitude;
         let latitude=coordinates.latitude;
-        let apiUrl=`https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}`;
+        let apiUrl=`https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
  
        
         axios.get(apiUrl).then(handleResponse);
