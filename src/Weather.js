@@ -12,6 +12,7 @@ function Weather({defaultCity}){
             ready:true,
             temperature: response.data.temperature.current,
             description: response.data.condition.description,
+            coordinates: response.data.coordinates,
             humidity: response.data.temperature.humidity,
             wind: response.data.wind.speed,
             icon: response.data.condition.icon,
@@ -49,7 +50,7 @@ function Weather({defaultCity}){
     </div>
 </form>
      <WeatherData data={weather}/>
-     <WeatherForecast />
+     <WeatherForecast coordinates={weather.coordinates}/>
        </div>
     ); 
 } else {
