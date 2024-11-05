@@ -10,11 +10,21 @@ function App() {
         <footer> this page was coded by 
         <a
           className="App-link"
-          href="https://github.com/ambervdsteen/new-react-weather-app"
+          href="https://github.com/ambervdsteen"
           target="_blank"
           rel="noopener noreferrer"
         > Amber van der Steen      
-        </a>  </footer>
+        </a> 
+        , open-sourced on  
+        <a 
+        rel="noopener noreferrer"
+        target="_blank"
+        href="https://github.com/ambervdsteen/new-react-weather-app"
+         > Github</a>, and hosted on <a 
+         href="https://shiny-gecko-7c750d.netlify.app/"
+         target='_blank'
+         rel="noopener noreferrer"
+         >Netflify</a> </footer>
  
       </div>
     </div>
