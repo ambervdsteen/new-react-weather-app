@@ -2,6 +2,7 @@ import React from 'react';
 import DateFormat from './DateFormat'
 import TemperatureData from './TemperatureData'
 import WeatherIcon from './WeatherIcon'
+import './WeatherData.css';
 
 function WeatherData({data}){
     return (
@@ -25,8 +26,9 @@ function WeatherData({data}){
     
         <h1>{data.city}</h1>
     <TemperatureData celsius={data.temperature}/>
+   <div className="iconWeatherData"> 
+<WeatherIcon code={data.icon} size={40}/></div>
 
-<WeatherIcon code={data.icon} alt={data.description}/>
       
 
 </div>

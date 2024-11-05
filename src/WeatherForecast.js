@@ -19,10 +19,15 @@ function WeatherForecast ({coordinates}){
     return (
         <div className="WeatherForecast"> 
               <div className="row">
-                 Fri 
-           <WeatherIcon code={"scattered-clouds-day"} size={42}/>
-            19/13 
-
+                <div className="col">
+                    <div className="forecastDay">Fri</div>
+           <WeatherIcon code={"rain-day"} size={32}/>
+           <div className="forecastTemps">
+            <span className="forecastTempMax">19°</span>
+            
+            <span className="forecastTempMin">13°</span>
+            </div> 
+            </div>
 
         </div>
 
